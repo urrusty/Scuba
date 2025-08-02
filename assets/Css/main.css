@@ -1,0 +1,135 @@
+   body {
+     scroll-behavior: smooth;
+   }
+
+   .navbar {
+     transition: background .3s;
+   }
+
+   .navbar.scrolled {
+     background: rgba(0, 0, 50, 0.9);
+   }
+
+   .hero {
+     background: url('../img/Header/Ocean.jpg') center/cover fixed;
+     height: 80vh;
+     color: white;
+     position: relative;
+   }
+
+     .hero.not-index {
+     background: url('../img/Header/Ocean.jpg') center/cover fixed;
+     height: 40vh;
+     color: white;
+     position: relative;
+   }
+   .hero .overlay {
+     position: absolute !important;
+     inset: 0;
+     background: rgba(71, 135, 196, 0.4);
+   }
+
+   .hero .content {
+     position: relative;
+     top: 25%;
+     transform: translateY(-50%);
+   }
+
+   .hero .overlay {
+     z-index: 1;
+   }
+
+   .hero .content,
+   .carousel-bg .container {
+     position: relative;
+     z-index: 2;
+   }
+
+   .carousel-indicators [data-bs-target] {
+     background-color: white;
+     opacity: 0.6;
+     margin: 0 4px;
+     transition: opacity 0.3s;
+   }
+
+   .carousel-indicators .active {
+     opacity: 1;
+     background-color: #0d6efd;
+   }
+
+
+   .section {
+     opacity: 0;
+     transform: translateY(60px);
+     transition: all 0.6s ease;
+      scroll-margin-top: 80px; /* O ajusta según el alto real del navbar */
+   }
+
+   .section.visible {
+     opacity: 1;
+     transform: translateY(0);
+   }
+
+   .lead {
+     font-size: 1.1rem;
+     font-weight: 500;
+     text-shadow: 1px 1px 2px rgb(7, 7, 7);
+   }
+     .leadSubtitle {
+     font-size: 1.1rem;
+     font-weight: 500;
+   
+   }
+
+   .img-wheelchair {
+     width: 360px;
+     height: auto;
+     align-items: center;
+   }
+
+   .iframe-google {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     max-width: 100%;
+     height: 4800px;
+   }
+
+.card-body
+{
+  height: 360px;
+}
+
+
+.list-group-item {
+     border: 0; 
+}
+
+
+   /* Responsive design */
+   @media (max-width: 600px) {
+     .lead {
+       font-size: 0.8 rem;
+       font-weight: 300;
+       text-shadow: 1px 1px 2px rgb(7, 7, 7);
+     }
+
+     .display-4 {
+       font-size: calc(1.2rem + 2.7vw);
+       font-weight: 300;
+       line-height: 1.2;
+     }
+
+     .hero .content {
+       position: relative;
+       transform: translateY(-25%);
+     }
+
+     .iframe-google {
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       max-width: 100%;
+       height: 6600px;
+     }
+   }
