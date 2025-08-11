@@ -1,21 +1,22 @@
    /* Add to your main.css */
-html, body {
-  height: 100%;
-}
+   html,
+   body {
+     height: 100%;
+   }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+   body {
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+   }
 
-main {
-  flex: 1 0 auto;
-}
-   
-   
-   
-   
+   main {
+     flex: 1 0 auto;
+   }
+
+
+
+
    body {
      scroll-behavior: smooth;
    }
@@ -34,7 +35,7 @@ main {
    }
 
    .navbar.scrolled {
-     background: rgba(0, 0, 50, 0.9);
+     background: rgba(0, 0, 50, 0.75);
    }
 
    .navbar-toggler {
@@ -151,20 +152,37 @@ main {
    }
 
 
-   @media (max-width: 1200px) {
-     .hero{
-      height: 65vh;
-       
+   @media (max-width: 1300px) {
+     .hero {
+       height: 90vh;
      }
+
+     .carousel .display-4,
+     .carousel h1.display-4 {
+       font-size: 2rem;
+     }
+
+      .hero.not-index {
+     padding-top: 100px;
+       padding-bottom: 50px;
+
+     }
+
   
-  }
+   }
+
    @media (max-width: 765px) {
-     .hero{
-      height: 80vh;
-       
+     .hero {
+       height: 110vh;
+
      }
-  
-  }
+
+     .carousel .display-4,
+     .carousel h1.display-4 {
+       font-size: 1.8rem;
+     }
+
+   }
 
 
 
@@ -207,10 +225,11 @@ main {
        height: 6600px;
      }
 
-     .hero{
-      height: 90vh;
-       
+     .hero {
+       height: 80vh;
+
      }
+
      .hero.not-index {
        padding-top: 80px;
        height: auto;

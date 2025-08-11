@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+<script>
+(function(){
+  if (sessionStorage.getItem('acceso') === 'ok') return;
 
+  var password = prompt('Access Code:');
+  if (password === 'Scuba1950') {
+    sessionStorage.setItem('acceso','ok');
+    return;
+  }
+
+  // si llega aquí, fue cancelado (null) o contraseña incorrecta:
+  document.documentElement.innerHTML = '<!doctype html><html><head><meta charset="utf-8"><title>Access denied</title></head><body style="font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;"><h1>Access denegado</h1></body></html>';
+})();
+
+</script>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,11 +40,12 @@
           class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-white" href="../Index.html#Classes">Classes</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="Classes.html">Classes</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="../HSAScuba.html">HSA Scuba</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="../Credentials.html">Credentials</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="Index.html#ScubaDiving">Scuba Diving</a></li>
-          <li class="nav-item"><a class="btn btn-primary ms-2" href="Register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Schedule</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="../bucksscholarship.html">Bucks Scholarship</a></li>
+          <li class="nav-item"><a class="btn btn-primary ms-2" href="../Register.html">Register</a></li>
         </ul>
       </div>
     </div>
@@ -71,13 +86,13 @@
         <div class="mb-5">
           <h4 class="text-primary mb-3">📋 Prerequisites</h4>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">✅ Age 15+ (12–14 for Junior Open Water SCUBA Diver)</li>
-            <li class="list-group-item">✅ Medical questionnaire or physician approval <a
+            <li class="list-group-item">👌 Age 15+ (12–14 for Junior Open Water SCUBA Diver)</li>
+            <li class="list-group-item">👌 Medical questionnaire or physician approval <a
                 href="http://scubawithgabrielle.com/docs/SEI-RSTC-Medical-form.pdf" target="_blank">(Download here)</a>
             </li>
-            <li class="list-group-item">✅ Signed waiver & release <a
+            <li class="list-group-item">👌 Signed waiver & release <a
                 href="http://scubawithgabrielle.com/docs/SEIWaiver.pdf" target="_blank">(Download here)</a></li>
-            <li class="list-group-item">✅ Competent swimming ability (without mask, snorkel, fins or other swimming
+            <li class="list-group-item">👌 Competent swimming ability (without mask, snorkel, fins or other swimming
               aids):
               <ul class="mt-2">
                 <li>Prerequisite requirements: (prior to SCUBA training)</li>
@@ -88,7 +103,7 @@
                 </ul>
               </ul>
             </li>
-            <li class="list-group-item">✅ Junior Open Water SCUBA Diver students must also meet the following:
+            <li class="list-group-item">👌 Junior Open Water SCUBA Diver students must also meet the following:
               <ul class="mt-2">
                 <li>Permission of parent or guardian to take course is required</li>
                 <li>Pre-course interview with instructor and parent(s) is required.</li>
@@ -189,7 +204,7 @@
                 skills to recognize and take action in the event of a diving accident. This course concentrates on four
                 primary topics: Cognizance, Assessment, Rescue, and Evacuation. DRAM Diver certification is recommended
                 for all divers and is a prerequisite for SCUBA leadership training.</p>
-              <a href="#" class="btn btn-outline-primary">More Info</a>
+              <a href="DRAM.html" class="btn btn-outline-primary">More Info</a>
             </div>
           </div>
         </div>

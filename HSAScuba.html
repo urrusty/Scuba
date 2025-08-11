@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+<script>
+(function(){
+  if (sessionStorage.getItem('acceso') === 'ok') return;
 
+  var password = prompt('Access Code:');
+  if (password === 'Scuba1950') {
+    sessionStorage.setItem('acceso','ok');
+    return;
+  }
+
+  // si llega aquí, fue cancelado (null) o contraseña incorrecta:
+  document.documentElement.innerHTML = '<!doctype html><html><head><meta charset="utf-8"><title>Access denied</title></head><body style="font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;"><h1>Access denegado</h1></body></html>';
+})();
+
+</script>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,10 +40,13 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="index.html#Classes">Classes</a></li>
-                    <li class="nav-item"><a class="nav-link text-white fw-bold"  href="#">HSA Scuba</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="Credentials.html">Credentials</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#ScubaDiving">Scuba Diving</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Classes/Classes.html">Classes</a></li>
+                    <li class="nav-item"><a class="nav-link text-white  fw-bold" href="HSAScuba.html">HSA Scuba</a></li>
+                    <li class="nav-item"><a class="nav-link text-white " href="Credentials.html">Credentials</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="bucksscholarship.html">Bucks
+                            Scholarship</a></li>
                     <li class="nav-item"><a class="btn btn-primary ms-2" href="Register.html">Register</a></li>
                 </ul>
             </div>
@@ -45,17 +62,7 @@
                         <div class="d-flex h-100 align-items-center justify-content-center text-center text-white">
                             <div class="container">
                                 <h1 class="display-4 fw-bold">SCUBA with Disabilities with Gabrielle </h1>
-                                <p class="lead">People with disabilities can often enjoy SCUBA diving despite any
-                                    physical limitations.
-                                    Following medical clearance by your doctor, you will learn to experience diving
-                                    regardless of your
-                                    different abilities. Water is invigorating and healing...don't let anyone (except
-                                    your doctor) tell
-                                    you that you can't dive, too! Dr. Gabrielle K. Gabrielli has been an HSA instructor
-                                    since 2011 (HSA
-                                    certification number 4606), and she loves working with people with disabilities and
-                                    helping teach others
-                                    to do the same in a safe, respectful, and fun way.</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -66,30 +73,46 @@
 
     <main class="pt-5">
 
+
+<section id="HSAScuba" class="section  py-3 container">
+
+     <p >People with disabilities can often enjoy SCUBA diving despite any
+                                    physical limitations.
+                                    Following medical clearance by your doctor, you will learn to experience diving
+                                    regardless of your
+                                    different abilities. Water is invigorating and healing...don't let anyone (except
+                                    your doctor) tell
+                                    you that you can't dive, too! Dr. Gabrielle K. Gabrielli has been an HSA instructor
+                                    since 2011 (HSA
+                                    certification number 4606), and she loves working with people with disabilities and
+                                    helping teach others
+                                    to do the same in a safe, respectful, and fun way.</p>
+</section>
+
         <section id="HSAScuba" class="section bg-light py-3 container">
 
             <h5 class=" mb-3 text-center">Check Out Coverage of What We Do</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">✅ Accessible Florida - <strong><a
+                <li class="list-group-item">👌 Accessible Florida - <strong><a
                             href="https://www.visitflorida.com/travel-ideas/articles/south-florida-vacations-for-travelers-with-disabilities/"
                             taget="_blank"> Limitless Possibilities for SCUBA diving </a></strong>for those with
                     disabilities featuring Ronny Ahmed</li>
-                <li class="list-group-item">✅ <strong><a href="https://www.youtube.com/watch?v=YQdps90HISA"
+                <li class="list-group-item">👌 <strong><a href="https://www.youtube.com/watch?v=YQdps90HISA"
                             target="_blank">Video by Visit Florida </a> </strong>on Ronny and Gabrielle's SCUBA
                     experience - Ronny
                     has since gone on to earn his instructor certification! He's the first diver with paraplegia to
                     become an instructor with SEI. </li>
                 </li>
-                <li class="list-group-item">✅ <strong><a href="https://sportsnspokes.com/aqua-able/"
+                <li class="list-group-item">👌 <strong><a href="https://sportsnspokes.com/aqua-able/"
                             target="_blank">Sports N Spokes Magazine Aqua Able Feature Story </a> </strong>on Ronny
                 </li>
                 </li>
-                <li class="list-group-item">✅ Visit <strong><a href="https://www.youtube.com/user/GabrielleConsulting"
+                <li class="list-group-item">👌 Visit <strong><a href="https://www.youtube.com/user/GabrielleConsulting"
                             target="_blank">Gabrielle's
                             YouTube Channel </a> </strong> </li>
                 </li>
                 </li>
-                <li class="list-group-item">✅ Visit <strong><a
+                <li class="list-group-item">👌 Visit <strong><a
                             href="https://www.youtube.com/channel/UCyXOSiL5Zd0dx1usMUCL06Q" target="_blank">Ronny's
                             YouTube Channel - Limitless Ronny </a> </strong> </li>
                 </li>
