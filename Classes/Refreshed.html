@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<script>
-(function(){
-  if (sessionStorage.getItem('acceso') === 'ok') return;
 
-  var password = prompt('Access Code:');
-  if (password === 'Scuba1950') {
-    sessionStorage.setItem('acceso','ok');
-    return;
-  }
-
-  // si llega aquí, fue cancelado (null) o contraseña incorrecta:
-  document.documentElement.innerHTML = '<!doctype html><html><head><meta charset="utf-8"><title>Access denied</title></head><body style="font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;"><h1>Access denegado</h1></body></html>';
-})();
-
-</script>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
