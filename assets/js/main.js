@@ -5,7 +5,7 @@ window.addEventListener('scroll', () => {
   // Only remove 'scrolled' if not forced by menu
 
   if (!menuForcedScrolled) {
-    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 100);
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY >= 100);
     menuForcedScrolled = nav.classList.contains('scrolled');
 
 
