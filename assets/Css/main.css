@@ -43,6 +43,11 @@ body {
 
 .navbar.scrolled {
   background: rgba(0, 0, 50, 0.75);
+  background-image: url('../img/Header/scrolled.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
 }
 
 .dropdown-menu {
