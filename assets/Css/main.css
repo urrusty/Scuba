@@ -179,8 +179,8 @@ body {
   width: 160px;
   height: 160px;
   object-fit: cover;
-   border-radius: 50%;
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   border: 4px solid #0d6efd;
 }
 
@@ -206,6 +206,10 @@ body {
 
 
 @media (max-width: 765px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
   .hero {
     height: 110vh;
 
@@ -271,4 +275,22 @@ body {
   }
 
 
+}
+
+
+/* Responsive design */
+@media (max-width: 395px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  #navbarButton {
+    width: 46px;
+
+  }
+
+  .navbar-toggler-icon {
+    width: 19px;
+  
+  }
 }
