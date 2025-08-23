@@ -165,10 +165,19 @@ body {
   height: 4800px;
 }
 
+
 .card-body {
   height: 360px;
 }
 
+
+.card .card-body.team {
+ height: 190px !important;
+  min-height: 190px !important;
+  /* por si hay algún min-height mayor */
+  max-height: 190px !important;
+  /* o 'auto' si quieres scrollbar */
+}
 
 .list-group-item {
   border: 0;
@@ -291,6 +300,6 @@ body {
 
   .navbar-toggler-icon {
     width: 19px;
-  
+
   }
 }
