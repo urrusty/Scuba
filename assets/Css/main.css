@@ -172,10 +172,10 @@ body {
 
 
 .card .card-body.team {
- height: 190px !important;
-  min-height: 190px !important;
+ height: 200px !important;
+  min-height: 200px !important;
   /* por si hay algún min-height mayor */
-  max-height: 190px !important;
+  max-height: 200px !important;
   /* o 'auto' si quieres scrollbar */
 }
 
