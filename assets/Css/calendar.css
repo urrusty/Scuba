@@ -1,0 +1,82 @@
+ #calendar {
+   max-width: 95%;
+   margin: 20px auto;
+   background: white;
+   border-radius: 15px;
+   padding: 10px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+ }
+
+ .fc-toolbar-title {
+   color: #0077b6;
+   font-weight: bold;
+ }
+
+ .fc-daygrid-event,
+ .fc-list-event {
+   background: #0096c7 !important;
+   border: none !important;
+   border-radius: 8px !important;
+   padding: 3px !important;
+   font-size: 0.85rem !important;
+   color: white !important;
+ }
+   .fc .fc-button {
+     background: #0096c7 !important;
+     border-color: white !important;
+   }
+
+ @media (max-width: 450px) {
+
+   /* Estilo general de botones */
+   .fc .fc-button {
+     background: #0096c7 !important;
+     border: none !important;
+     border-radius: 50% !important;
+     width: 42px !important;
+     height: 42px !important;
+     display: flex !important;
+     align-items: center;
+     justify-content: center;
+     color: white !important;
+     font-size: 0 !important;
+     /* oculta texto del botón */
+     margin: 3px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+   }
+
+   .fc .fc-button:hover {
+     background: #0077b6 !important;
+   }
+
+   /* Reemplazar texto con iconos */
+   .fc-prev-button::before {
+     content: "⬅️";
+     font-size: 20px;
+   }
+
+   .fc-next-button::before {
+     content: "➡️";
+     font-size: 20px;
+   }
+
+   .fc-today-button::before {
+     content: "📍";
+     font-size: 20px;
+   }
+
+   .fc-dayGridMonth-button::before {
+     content: "📅";
+     font-size: 20px;
+   }
+
+   .fc-timeGridWeek-button::before {
+     content: "🗓️";
+     font-size: 20px;
+   }
+
+   .fc-listWeek-button::before {
+     content: "📋";
+     font-size: 20px;
+   }
+ }
