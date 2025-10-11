@@ -1,0 +1,104 @@
+ body {
+            height: 100vh;
+            background: radial-gradient(circle at center, #013a63 0%, #012a4a 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Fondo animado: peces nadando de izquierda a derecha */
+        .background-fish {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-image: url('https://urrusty.github.io/Scuba/assets/img/Header/back%20card%20design.png');
+            background-size: contain;
+            background-repeat: repeat-x;
+            background-position: center;
+            opacity: 0.15;
+            animation: swimHorizontal 45s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes swimHorizontal {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #cfe0f2;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info a {
+            color: #90e0ef;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #00b4d8;
+            transform: translateY(-3px);
+        }
+
+        .btn-back {
+            background-color: #00b4d8;
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #0096c7;
+            transform: scale(1.05);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            z-index: 2;
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
