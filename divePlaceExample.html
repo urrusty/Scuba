@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dive Site Details</title>
+    <!-- Bootstrap CSS v5.3.7 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Color palette inspired by the referenced page (ocean blues, clean white) */
+        body {
+            background-color: #ffffff;
+            color: #033e6b;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #04518c;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #f0f0f0 !important;
+        }
+
+        .header-section {
+            background-color: #e6f4ff;
+            padding: 2rem 0;
+        }
+
+        .card-label {
+            font-weight: bold;
+            color: #04518c;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">DiveSites</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="color: #fff;">☰</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sites</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header section -->
+    <section class="header-section text-center">
+        <div class="container">
+            <h1 id="site-name">Dive Site Name</h1>
+            <p id="site-tagline" class="lead">Short tagline description.</p>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="row">
+            <!-- Left column: details -->
+            <div class="col-lg-6">
+                <div class="mb-4">
+                    <h3>Details</h3>
+                    <p id="site-description">Full site description goes here.</p>
+                </div>
+
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <span class="card-label">How to get there:</span><br>
+                        <span id="site-directions">Directions and travel information.</span>
+                    </div>
+                    <div class="list-group-item">
+                        <span class="card-label">Entrance fee:</span> <span id="site-fee">Free / $XX</span>
+                    </div>
+                    <div class="list-group-item">
+                        <span class="card-label">Water temperature:</span> <span id="site-water-temp">-- °C</span>
+                    </div>
+                    <div class="list-group-item">
+                        <span class="card-label">Average visibility:</span> <span id="site-visibility">-- m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column: photo gallery -->
+            <div class="col-lg-6">
+                <h3>Gallery</h3>
+                <div id="carouselPhotos" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="photos-inner">
+                        <!-- JS will inject slides here -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhotos"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPhotos"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map section -->
+    <div class="container mb-5">
+        <h3>Get Directions</h3>
+        <p>Tap the button below to open directions to this dive site in your preferred maps app.</p>
+
+        <a id="directions-btn" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            Open in Maps
+        </a>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 DiveSites. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dynamic content script -->
+    <script>
+      
+        // Example dive site object (you can replace with future dynamic data)
+        const diveSite = {
+            name: "Blue Hole, Bahamas",
+            tagline: "A marine sinkhole with crystal-clear water and vibrant sea life.",
+            description: `
+        Blue Hole is a world-renowned dive site with a dramatic vertical drop.
+        Visibility is typically excellent, making it perfect for underwater photography.
+        Expect healthy coral formations, sponges, schools of barracuda, and occasional nurse sharks.
+      `,
+            directions: `
+        From Nassau: take a ferry or boat to Long Island. From Clarence Town, drive 15 km south toward
+        Cape Santa Maria. The ocean access is marked by a wooden sign. Approx. coords: 23.15° N, 75.80° W.
+      `,
+            fee: "$20 per person",
+            waterTemp: "26–29 °C",
+            visibility: "20–30 m",
+            photos: [
+                { url: "https://source.unsplash.com/featured/?underwater,ocean", caption: "Blue Hole entrance" },
+                { url: "https://source.unsplash.com/featured/?coral,reef", caption: "Coral formations" },
+                { url: "https://source.unsplash.com/featured/?diver", caption: "Diver on the wall" }
+            ],
+            coords: { lat: 23.15, lng: -75.80 }
+        };
+
+        function renderDiveSite(site) {
+            document.getElementById("site-name").textContent = site.name;
+            document.getElementById("site-tagline").textContent = site.tagline;
+            document.getElementById("site-description").innerHTML = site.description;
+            document.getElementById("site-directions").innerHTML = site.directions;
+            document.getElementById("site-fee").textContent = site.fee;
+            document.getElementById("site-water-temp").textContent = site.waterTemp;
+            document.getElementById("site-visibility").textContent = site.visibility;
+
+            const photosInner = document.getElementById("photos-inner");
+            site.photos.forEach((p, index) => {
+                const div = document.createElement("div");
+                div.className = "carousel-item" + (index === 0 ? " active" : "");
+                div.innerHTML = `
+          <img src="${p.url}" class="d-block w-100" alt="Slide ${index + 1}">
+          <div class="carousel-caption d-none d-md-block">
+            <p>${p.caption}</p>
+          </div>
+        `;
+                photosInner.appendChild(div);
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            renderDiveSite(diveSite);
+              setDirectionsButton(diveSite.coords);
+        });
+
+        function setDirectionsButton(coords) {
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}`;
+            document.getElementById("directions-btn").href = url;
+        }
+    </script>
+</body>
+
+</html>

@@ -12,12 +12,21 @@
 html,
 body {
   height: 100%;
+
+
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+h1 {
+  font-family: 'Century Gothic', CenturyGothic, sans-serif !important;
 }
 
 main {
@@ -172,47 +181,47 @@ body {
 
 
 .card-body.team {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 200px !important;
-    min-height: 200px !important;
-    max-height: 200px !important;
-    padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 200px !important;
+  min-height: 200px !important;
+  max-height: 200px !important;
+  padding-bottom: 0;
 }
 
 .card-body.team .card-title,
 .card-body.team .text-muted {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .card-body.team .card-text {
-    flex-grow: 1;
-    width: 100%;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .card-body.team .mt-auto {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-body.team .btn {
-    margin: 0 4px;
+  margin: 0 4px;
 }
 
 .card-body.team .mt-2 {
-    margin-top: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
-.view-more{
+.view-more {
   margin-bottom: 44.42px;
 }
 
@@ -345,7 +354,8 @@ body {
 .responsive-calendar {
   position: relative;
   width: 100%;
-  padding-bottom: 75%; /* Esto mantiene una proporción 4:3, ajustable */
+  padding-bottom: 75%;
+  /* Esto mantiene una proporción 4:3, ajustable */
   height: 0;
   overflow: hidden;
 }
@@ -357,4 +367,211 @@ body {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* DAN side banners — sticky inside <main> so they don't overlap header/footer */
+.dan-side {
+  position: fixed;
+  top: 480px;
+  /* distance from top of viewport (adjust if navbar taller) */
+  width: 120px;
+  z-index: 1025;
+  /* below the navbar (Bootstrap fixed-top usually 1030) */
+  line-height: 0;
+  /* initially keep in flow hidden on small screens using utility classes; JS will set precise left positions on large screens */
+  transition: top 0.22s ease;
+}
+
+.dan-side.left {
+  left: 40px;
+}
+
+.dan-side.right {
+  /* right will be set by JS to align to main container */
+}
+
+/* Ensure the image keeps its native width */
+.dan-side img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+/* Mobile banner styling */
+.dan-mobile img {
+  max-width: 100%;
+  height: auto;
+}
+
+.dan-mobile {
+  display: none !important;
+}
+
+/* Responsive safety: hide side banners at smaller breakpoints */
+@media (max-width: 1440px) {
+  .dan-side {
+    display: none !important;
+  }
+
+  .img-insurance {
+    content: url("../img/dan/dan-travel-insurance-rewards-970x90px.jpg") !important;
+  }
+
+  .img-membership {
+    content: url("../img/dan/dan-membership-referral-rewards-1-970x90px.jpg") !important;
+  }
+
+  .dan-mobile {
+    display: block !important;
+  }
+}
+
+
+@media (max-width: 975px) {
+  .dan-side {
+    display: none !important;
+  }
+
+  .img-insurance {
+    content: url("../img/dan/dan-travel-insurance-rewards-728x90px.jpg") !important;
+  }
+
+  .img-membership {
+    content: url("../img/dan/dan-membership-referral-rewards-1-728x90px.jpg") !important;
+  }
+
+  .dan-mobile {
+    display: block !important;
+  }
+}
+
+@media (max-width: 735px) {
+  .dan-side {
+    display: none !important;
+  }
+
+  .img-insurance {
+    content: url("../img/dan/dan-travel-insurance-rewards-468x60px.jpg") !important;
+  }
+
+  .img-membership {
+    content: url("../img/dan/dan-membership-referral-rewards-1-468x60px.jpg") !important;
+  }
+
+  .dan-mobile {
+    display: block !important;
+  }
+}
+
+@media (max-width: 475px) {
+  .dan-side {
+    display: none !important;
+  }
+
+  .img-insurance {
+    content: url("../img/dan/dan-travel-insurance-rewards-234x60px.jpg") !important;
+  }
+
+  .img-membership {
+    content: url("../img/dan/dan-membership-referral-rewards-1-234x60px.jpg") !important;
+  }
+
+  .dan-mobile {
+    display: block !important;
+  }
+}
+
+
+
+
+/* Section responsive adjustments: make horizontal spacing and key elements adapt fluidly */
+.section.container {
+  box-sizing: border-box;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.section {
+  /* allow sections to use an adjustable horizontal padding value */
+  --section-h-pad: 1rem;
+  padding-left: var(--section-h-pad);
+  padding-right: var(--section-h-pad);
+}
+
+/* Make images and card bodies scale smoothly across breakpoints */
+.img-wheelchair {
+  width: clamp(220px, 30vw, 360px);
+  height: auto;
+}
+
+.card-body {
+  height: auto;
+  /* override fixed height to let content flow */
+  min-height: 280px;
+}
+
+@media (min-width: 576px) {
+  .section {
+    --section-h-pad: 1.5rem;
+  }
+
+  .card-body {
+    min-height: 300px;
+  }
+
+  .img-wheelchair {
+    width: clamp(240px, 26vw, 360px);
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    --section-h-pad: 2rem;
+  }
+
+  .card-body {
+    min-height: 320px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    --section-h-pad: 3rem;
+  }
+
+  .section.container {
+    max-width: 1100px;
+  }
+
+  .card-body {
+    min-height: 360px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section {
+    --section-h-pad: 4rem;
+  }
+
+  .section.container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .card-body {
+    min-height: auto;
+  }
+
+  .img-wheelchair {
+    width: clamp(180px, 40vw, 300px);
+  }
+
+  .lead {
+    font-size: 0.95rem;
+  }
 }

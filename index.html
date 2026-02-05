@@ -44,8 +44,8 @@
               <li><a class="dropdown-item text-white" href="scholarships/jamescalvin.html">James Calvin</a></li>
               <li><a class="dropdown-item text-white" href="under-construction.html">Matthew Beard</a></li>
               <li><a class="dropdown-item text-white" href="under-construction.html">Richard S. Gabrielle</a></li>
-        <li><a class="dropdown-item text-white" href="under-construction.html">Larry Folsom</a></li>
-                            <li><a class="dropdown-item text-white" href="under-construction.html">Gabrielle Leadership</a></li>
+              <li><a class="dropdown-item text-white" href="under-construction.html">Larry Folsom</a></li>
+              <li><a class="dropdown-item text-white" href="under-construction.html">Gabrielle Leadership</a></li>
 
             </ul>
           </li>
@@ -154,6 +154,47 @@
   </header>
 
   <main class="pt-5">
+    <!-- BANNERS LATERALES DAN — dentro de main para que queden contenidos y no sobrepasen header/footer -->
+    <div class="dan-side left d-none d-lg-block">
+      <a href="https://apps.dan.org/join-dan/?rc=3373708" target="_blank" rel="noopener">
+        <img src="assets/img/dan/dan-membership-referral-rewards-1-120x600px.jpg" alt="DAN Membership" width="120"
+          height="600" class="img-fluid">
+      </a>
+    </div>
+
+    <div class="dan-side right d-none d-lg-block">
+      <a href="https://www.dan.org/partner/3373708/trip" target="_blank" rel="noopener">
+        <img src="assets/img/dan/dan-travel-insurance-rewards-120x600px.jpg" alt="DAN Travel Insurance" width="120"
+          height="600" class="img-fluid">
+      </a>
+    </div>
+
+
+    <div class="text-center my-3 dan-mobile ">
+      <a href="https://apps.dan.org/join-dan/?rc=3373708" target="_blank" rel="noopener">
+        <img src="assets/img/dan/dan-membership-referral-rewards-1-300x50px.jpg" alt="DAN Travel Insurance (mobile)"
+          class="img-fluid img-membership">
+      </a>
+    </div>
+    <div class="text-center my-3 dan-mobile ">
+      <a href="https://www.dan.org/partner/3373708/trip" target="_blank" rel="noopener">
+        <img alt="DAN Travel Insurance (mobile)" class="img-fluid img-insurance">
+      </a>
+    </div>
+
+    <!--
+ 
+    <div class="text-center my-3 dan-mobile d-block d-md-none">
+      <a href="https://dan.org/membership-insurance/travel-insurance/" target="_blank" rel="noopener">
+        <img src="assets/img/dan/dan-membership-referral-rewards-1-300x50px.jpg" alt="DAN Travel Insurance (mobile)" class="img-fluid">
+      </a>
+    </div>
+        <div class="text-center my-3 dan-mobile d-block d-md-none">
+      <a href="https://dan.org/membership-insurance/travel-insurance/" target="_blank" rel="noopener">
+        <img src="assets/img/dan/dan-travel-insurance-rewards-300x50px.jpg" alt="DAN Travel Insurance (mobile)" class="img-fluid">
+      </a>
+    </div> -->
+
     <section id="Classes" class="section py-5 container">
       <h2 class="mb-4 text-center">Gabrielle SCUBA Classes</h2>
       <p class="">100% of proceeds from Gabrielle's classes go directly to scholarships, adaptive gear, and other
@@ -324,6 +365,7 @@
       </div>
     </section>
   </main>
+
   <footer class="bg-dark text-white py-4">
     <div class="container text-center">
       <small>&copy; SCUBA Diving with Tallahassee SCUBA in Tallahassee and surrounding area, FL
@@ -333,6 +375,73 @@
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- Script to position DAN side banners next to the central <main> and hide them outside of main -->
+  <script>
+    (function () {
+      function setupBanners() {
+        var left = document.querySelector('.dan-side.left');
+        var right = document.querySelector('.dan-side.right');
+        var main = document.querySelector('main');
+        if (!main || !left || !right) return;
+
+        var bannerW = 120; // banner width in px
+
+        function update() {
+          var vw = window.innerWidth || document.documentElement.clientWidth;
+          // only show on large screens (Bootstrap lg breakpoint)
+          if (vw < 992) {
+            left.style.display = 'none';
+            right.style.display = 'none';
+            return;
+          }
+
+          var rect = main.getBoundingClientRect();
+          var mainTop = rect.top + window.scrollY;
+          var mainBottom = rect.bottom + window.scrollY;
+          var scrollY = window.scrollY || window.pageYOffset;
+
+          // show banners only while viewport overlaps main (so they don't appear over header/footer)
+          var visible = (scrollY + window.innerHeight) > mainTop + 50 && scrollY < mainBottom - 50;
+
+          if (!visible) {
+            left.style.display = 'none';
+            right.style.display = 'none';
+            return;
+          }
+
+          // compute positions so banners sit just outside the main content
+          var mainRect = main.getBoundingClientRect();
+          var leftPos = Math.max(8, mainRect.left - bannerW - 8 + window.scrollX);
+          var rightPos = Math.min(vw - bannerW - 20, mainRect.right + 0 + window.scrollX);
+
+          // compute top based on nav height when user scrolled; use 480px as starting offset at top
+          var nav = document.querySelector('nav');
+          var navHeight = nav ? nav.getBoundingClientRect().height : 0;
+          var desiredTop = (scrollY < 100) ? 480 : (navHeight + 10);
+
+          left.style.display = '';
+          right.style.display = '';
+          left.style.left = leftPos + 'px';
+          right.style.left = rightPos + 'px';
+          left.style.top = desiredTop + 'px';
+          right.style.top = desiredTop + 'px';
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        // run once after DOM load
+        update();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupBanners);
+      } else {
+        setupBanners();
+      }
+    })();
+  </script>
+
 
 </body>
 
